@@ -100,7 +100,7 @@ const controlAddRecipe = async function (newRecipe) {
 
     //Upload the new recipe data
     await model.uploadRecipe(newRecipe);
-    console.log(model.state.recipe);
+    // console.log(model.state.recipe);
 
     //Render recipe
     recipeView.render(model.state.recipe);
@@ -118,6 +118,8 @@ const controlAddRecipe = async function (newRecipe) {
     //Close form window
     setTimeout(() => {
       addRecipeView.toggleWindow();
+      // addRecipeView.renderForm();
+      window.location.reload();
     }, MODAL_CLOSE_SEC * 1000);
   } catch (err) {
     console.error('💥💥', err);
